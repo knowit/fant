@@ -19,7 +19,7 @@ Bygningene i en by bør:
 - Være inkluderende - skape for nye sosiale og profesjonelle relasjoner
 - Skape verdier - ved gi mye for mindre og stimulere innovasjon og reduksjon av konsum
 
-/doc/konsept/images/vi_aapner_byen.png
+![][./doc/konsept/images/vi_aapner_byen.png]
 
 Systemet skal bidra til å åpne byen ved å
 

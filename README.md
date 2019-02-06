@@ -19,7 +19,7 @@ Bygningene i en by bør:
 - Være inkluderende - skape for nye sosiale og profesjonelle relasjoner
 - Skape verdier - ved gi mye for mindre og stimulere innovasjon og reduksjon av konsum
 
-![][./doc/konsept/images/vi_aapner_byen.png]
+![](/doc/konsept/images/vi_aapner_byen.png)
 
 Systemet skal bidra til å åpne byen ved å
 
@@ -44,7 +44,7 @@ Utleier trenger:
 - trygghet for sine interesser blir ivaretatt ved en eventuell konflikt
 - grunnlag for tillit
 
-/doc/konsept/images/leier_utleier.png
+![](/doc/konsept/images/leier_utleier.png)
 
 Bruker trenger:
 
@@ -53,7 +53,8 @@ Bruker trenger:
 
 Systemet designes slik at det danner et godt fundament for å skape for tillit mellom utleier og leier.
 
-/doc/konsept/images/kundeforhold.png
+![](/doc/konsept/images/kundeforhold.png)
+
 
 ## Rangering og blokkering
 På lik linje med andre tilsvarende systemer blir personer og organisasjoner rangert og eventuelt blokkert ved tillitsbrudd. Deltakere vet det er et potensiale for tap av rangering og/ eller blokkering fra systemet ved mislighold.
@@ -73,7 +74,7 @@ Systemet tilbyr risikodeling ved hjelp av
 ## Kontroll
 Tilstanden på rommet dokumenteres når man sjekker inn og sjekker ut slik at det er enkelt å se om rommet har blitt godt behandlet. Dette gjøres ved at det automatisk blir tatt et bilde ved innsjekk og utsjekk.
 
-/doc/konsept/images/r00mSys.png
+![](/doc/konsept/images/r00mSys.png)
 
 # Typisk use case
 1. Systemet får legitimasjon fra leier og evt. depositum
@@ -121,8 +122,7 @@ Eiendomsutviklere tilbyr merverdi til leietakere ved å tilrettelegge bygg for d
 
 Eiendomsutviklere kan ved nybygg og rehabilitering sørge for at det opprettes tilgjengelig infrastruktur for deling. Rommene kan utformes slik at det er enkelt å dele tilgang til spesifikke deler.
 
-/doc/konsept/images/eiendomsutvikling.png
-
+![](/doc/konsept/images/eiendomsutvikling.png)
 
 # Katalog og søk
 Systemet har en katalog over tilgjengelige lokaler og tilbyr en brukervennlig søkefunksjon, gjerne basert på lokasjon dersom ønskelig.
@@ -166,7 +166,7 @@ Systemet vil begrense sin muligheter til å registrere sensitiv informasjon å k
 # Integrasjon mot husets systemer
 Der det er mulig, benyttes husets eksisterende systemer. Informasjon om husets tilstand hentes fra databusser som KNX e.l.
 
-/doc/konsept/images/husets_systemer.png
+![](/doc/konsept/images/husets_systemer.png)
 
 # r00my
 Det vil bli utviklet en portabel og fysisk enhet, r00my, som benyttes i de tilfeller man ikke har smarthus eller ikke har tilgang til systemene.
@@ -184,11 +184,11 @@ r00my har disse egenskapene:
 - krever kun internett og strøm
 - kan fungere som en utvidelse av husets systemer
 
-/doc/konsept/images/r00my.png
+![](/doc/konsept/images/r00my.png)
 
 r00my gjør det mulig å teste konseptet uten at det kreves integrasjon med systemene i bygningene. r00my lar oss teste ut om tjenesten fungerer i praksis uten for store initielle investeringer.
 
 # Totalbilde
 Følgende figur oppsummerer konseptet:
 
-/doc/konsept/images/totalbilde.png
+![](/doc/konsept/images/totalbilde.png)

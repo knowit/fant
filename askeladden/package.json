@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "serverless": "^1.37.1",
     "uuid": "^3.3.2"
   }
 }

@@ -19,12 +19,6 @@ module.exports.find = (event, context) => {
   const key = event["queryStringParameters"]["key"];
   return new Promise((resolve, reject) =>
     NFC.findOne({ key })
-      .populate({
-        path: "rooms",
-        select: "_id name capacity reservations",
-        populate: { path: "reservations", select: "_id from to reservedBy" }
-      })
-      .select("_id name rooms")
       .exec((error, result) => {
         if (result && result !== null) {
           resolve(result);

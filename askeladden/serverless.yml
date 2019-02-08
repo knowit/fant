@@ -1,0 +1,16 @@
+service: nomade-nfc-lambda
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  nfc:
+    handler: handler.nfc
+    events:
+      - http:
+          path: nfc
+          method: get
+      - http:
+          path: nfc
+          method: post

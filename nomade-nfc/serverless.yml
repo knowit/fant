@@ -4,6 +4,11 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: eu-west-2
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+         - "iot:Publish"
+      Resource: "arn:aws:iot:eu-west-2:*:*"
 
 functions:
   nfc:

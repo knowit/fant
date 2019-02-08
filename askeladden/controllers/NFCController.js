@@ -3,27 +3,29 @@ const NFC = require('../models/NFC');
 
 module.exports.create = async (event, context) => {
   console.log(event);
-  const nfc = new NFC(uuidv1());
+  const nfc = new NFC({ key: uuidv1() });
   return new Promise((resolve, reject) =>
     nfc.save((error, result) => {
       if (result && result !== null) {
         resolve(result);
       }
-      resolve(error);
+      reject(error);
     })
   );
 };
 
 module.exports.find = (event, context) => {
   console.log(event);
-  const key = event["queryStringParameters"]["key"];
+  const body = JSON.parse(event.body)
+  const key = body.nfc.key;
+  console.log(key);
   return new Promise((resolve, reject) =>
     NFC.findOne({ key })
       .exec((error, result) => {
         if (result && result !== null) {
           resolve(result);
         }
-        resolve(error);
+        reject(error);
       })
   );
 };

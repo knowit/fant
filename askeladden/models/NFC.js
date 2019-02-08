@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const NFC = new mongoose.Schema({
   key: {
     type: String,
-    required: true
+    required: true,
   },
 });
 

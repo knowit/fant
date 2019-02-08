@@ -1,0 +1,32 @@
+service: nomade-lambda
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-2
+
+functions:
+  floor:
+    handler: handler.floors
+    events:
+      - http:
+          path: api/floors
+          method: get
+      - http:
+          path: api/floors
+          method: post
+  room:
+    handler: handler.rooms
+    events:
+      - http:
+          path: api/rooms
+          method: get
+      - http:
+          path: api/rooms
+          method: post
+  reservation:
+    handler: handler.reservations
+    events:
+      - http:
+          path: api/reservations
+          method: post

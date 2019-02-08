@@ -1,0 +1,16 @@
+{
+  "name": "askeladden",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.399.0",
+    "mongoose": "^5.4.10",
+    "uuid": "^3.3.2"
+  }
+}

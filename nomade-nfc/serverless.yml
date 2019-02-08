@@ -1,0 +1,22 @@
+service: nomade-nfc-lambda
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-2
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+         - "iot:Publish"
+      Resource: "arn:aws:iot:eu-west-2:*:*"
+
+functions:
+  nfc:
+    handler: handler.nfc
+    events:
+      - http:
+          path: nfc
+          method: get
+      - http:
+          path: nfc
+          method: post

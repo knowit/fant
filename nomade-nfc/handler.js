@@ -1,22 +1,38 @@
-const util = require('./util/util');
-const constants = require('./constants');
+var AWS = require("aws-sdk");
+var iotdata = new AWS.IotData({
+  endpoint: "a1wn77w8brnymu-ats.iot.eu-west-2.amazonaws.com"
+});
 
-const NFC = require('./models/NFC');
+const util = require("./util/util");
+const constants = require("./constants");
 
-const NFCController = require('./controllers/NFCController');
+const NFC = require("./models/NFC");
+
+const NFCController = require("./controllers/NFCController");
 
 module.exports.nfc = async (event, context) => {
   await util.connectToDatabase(constants.MONGODB_URI);
 
   switch (event.httpMethod) {
-    case 'POST':
+    case "POST":
       try {
         let result = await NFCController.find(event, context);
         console.log(result);
+        const MQTTparams = {
+          topic: "lock",
+          qos: 0
+        };
+        iotdata.publish(MQTTparams, (err, data) => {
+          if (err) {
+            console.log("MQTT error:", err);
+          } else {
+            console.log("MQTT data:", data);
+          }
+        });
         return {
           statusCode: 200,
           body: JSON.stringify({
-            message: 'NFC find:',
+            message: "NFC find:",
             nfc: result
           })
         };
@@ -29,14 +45,14 @@ module.exports.nfc = async (event, context) => {
           }
         };
       }
-    case 'GET':
+    case "GET":
       try {
         let result = await NFCController.create(event, context);
         console.log(result);
         return {
           statusCode: 200,
           body: JSON.stringify({
-            message: 'NFC create:',
+            message: "NFC create:",
             nfc: result
           })
         };

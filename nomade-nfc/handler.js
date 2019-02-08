@@ -17,17 +17,21 @@ module.exports.nfc = async (event, context) => {
     case "POST":
       try {
         let result = await NFCController.find(event, context);
-        console.log(result);
+        console.log('nfccontroller', result);
         const MQTTparams = {
           topic: "lock",
           qos: 0
         };
-        iotdata.publish(MQTTparams, (err, data) => {
-          if (err) {
-            console.log("MQTT error:", err);
-          } else {
-            console.log("MQTT data:", data);
-          }
+        await new Promise((resolve, reject) => {
+          iotdata.publish(MQTTparams, (err, data) => {
+            if (err) {
+              console.log("MQTT error:", err);
+              resolve(err);
+            } else {
+              console.log("MQTT data:", data);
+              resolve(data);
+            }
+          });
         });
         return {
           statusCode: 200,

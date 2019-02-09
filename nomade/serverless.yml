@@ -15,6 +15,12 @@ functions:
       - http:
           path: api/floors
           method: post
+  floors:
+    handler: handler.floorsAll
+    events:
+      - http:
+          path: api/floors/all
+          method: get
   room:
     handler: handler.rooms
     events:

@@ -15,10 +15,11 @@ public class HostCardEmulatorService extends HostApduService {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            System.out.println("HER HOROROROR");
             assert action != null;
             if (action.equals("new_key")) {
                 KEY = intent.getStringExtra("key");
+            } else if (action.equals("open_complete")) {
+                KEY = "Whatevs";
             }
         }
     };
@@ -29,7 +30,9 @@ public class HostCardEmulatorService extends HostApduService {
         super.onCreate();
         IntentFilter filter = new IntentFilter();
         filter.addAction("new_key");
+        filter.addAction("open_complete");
         registerReceiver(mBroadcastReceiver, filter);
+
     }
 
     @Override
@@ -53,7 +56,6 @@ public class HostCardEmulatorService extends HostApduService {
 
     @Override
     public byte[] processCommandApdu(byte[] commandApdu, Bundle extras) {
-        System.out.println(KEY);
         if (commandApdu == null) {
             return Utils.hexStringToByteArray(STATUS_FAILED);
         }
@@ -72,8 +74,18 @@ public class HostCardEmulatorService extends HostApduService {
         }
 
         if (hexCommandApdu.substring(10, 24).equals(AID)) {
+            if (!KEY.equals("Whatevs")) {
+                Intent intent = new Intent("open_complete");
+                sendBroadcast(intent);
+
+            } else {
+                Intent intent = new Intent("no_code");
+                sendBroadcast(intent);
+            }
             return KEY.getBytes();
         } else {
+            Intent intent = new Intent("no_access");
+            sendBroadcast(intent);
             return Utils.hexStringToByteArray(STATUS_FAILED);
         }
     }

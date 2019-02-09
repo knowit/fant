@@ -62,6 +62,37 @@ module.exports.floors = async (event, context) => {
   }
 };
 
+module.exports.floorsAll = async (event, context) => {
+  await util.connectToDatabase(constants.MONGODB_URI);
+
+  switch (event.httpMethod) {
+    case "GET":
+      try {
+        let result = await FloorController.findAll(event, context);
+        console.log(result);
+        return {
+          statusCode: 200,
+          body: JSON.stringify({
+            message: "Floors findAll:",
+            floors: result
+          })
+        };
+      } catch (e) {
+        console.log(e);
+        return {
+          statusCode: 500,
+          body: {
+            error: e
+          }
+        };
+      }
+    default:
+      return {
+        statusCode: 404
+      };
+  }
+};
+
 module.exports.rooms = async (event, context) => {
   await util.connectToDatabase(constants.MONGODB_URI);
 

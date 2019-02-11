@@ -23,6 +23,9 @@ module.exports.create = async (event, context) => {
               room
             });
             reservation.save((err, result) => {
+              if (err) {
+                resolve(err);
+              }
               room.reservations.push(reservation._id);
               room.save(err => {
                 if (err) {

@@ -33,3 +33,17 @@ module.exports.find = (event, context) => {
       })
   );
 };
+
+module.exports.findAll = (event, context) => {
+  console.log(event);
+  return new Promise((resolve, reject) =>
+    Floor.find({})
+      .select("_id name")
+      .exec((err, result) => {
+        if (result && result !== null) {
+          resolve(result);
+        }
+        resolve(err);
+      })
+  );
+};
